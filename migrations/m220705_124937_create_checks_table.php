@@ -18,6 +18,9 @@ class m220705_124937_create_checks_table extends Migration
         $this->createTable('{{%checks}}', [
             'id' => $this->primaryKey(),
             'url_id' => $this->integer()->notNull(),
+            'http_code' => $this->integer(),
+            'attempt_num' => $this->integer(),
+            'check_time' => $this->timestamp()->defaultExpression('CURRENT_TIMESTAMP'),
         ]);
 
         // creates index for column `url_id`
